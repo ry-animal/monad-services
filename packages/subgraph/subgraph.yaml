@@ -1,0 +1,23 @@
+specVersion: 0.0.4
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Reaction
+    network: monad-testnet
+    source:
+      address: "0x29D404443f2CFd112B9C2947B28bf0Db27a7D00E"
+      abi: Reaction
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - Reaction
+      abis:
+        - name: Reaction
+          file: ./abis/Reaction.json
+      eventHandlers:
+        - event: ReactionAdded(indexed bytes32,indexed address,uint8)
+          handler: handleReactionAdded
+      file: ./src/mapping.ts 

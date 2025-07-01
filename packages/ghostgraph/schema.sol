@@ -1,0 +1,32 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.19;
+
+    struct Pulse {
+        uint256 id;
+        address author;
+        string contentHash;
+        uint256 timestamp;
+        uint256 reactionCount;
+    }
+
+    struct Reaction {
+        uint256 id;
+        uint256 reactionId;
+        uint256 pulseId;
+        address reactor;
+        string reactionType;
+        uint256 timestamp;
+    }
+
+    struct User {
+        address id;
+        uint256 totalReactions;
+        uint256 totalPulses;
+    }
+
+    struct Global {
+        string id;
+        uint256 totalPulses;
+        uint256 totalReactions;
+        uint256 uniqueUsers;
+    }

@@ -1,0 +1,41 @@
+node_modules/
+.next/
+out/
+.env*
+.DS_Store
+build/
+generated/
+cache/
+artifacts/
+
+# --- Next.js ---
+.next/
+out/
+node_modules/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# --- Foundry (Solidity) ---
+artifacts/
+cache/
+broadcast/
+*.json
+*.dbg.json
+*.tsbuildinfo
+
+# --- The Graph Subgraph ---
+build/
+generated/
+node_modules/
+dist/
+
+# --- General ---
+.env
+.env.*
+.cursor/
+
+# --- Editor & Tooling ---
+.vscode/
+.wake/

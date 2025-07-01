@@ -1,0 +1,22 @@
+out/
+cache/
+artifacts/
+.env*
+.DS_Store 
+
+# --- Foundry (Solidity) ---
+artifacts/
+cache/
+broadcast/
+*.json
+*.dbg.json
+*.tsbuildinfo
+
+# --- General ---
+.env
+.env.*
+.cursor/ 
+
+# --- Editor & Tooling ---
+.vscode/
+.wake/ 

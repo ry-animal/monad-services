@@ -1,0 +1,29 @@
+type Reaction @entity {
+  id: ID!
+  userAddress: Bytes!
+  transactionId: Bytes!
+  emojiId: Int!
+  timestamp: BigInt!
+}
+
+type TrackedEvent @entity {
+  id: ID!
+  type: String!
+  from: Bytes!
+  to: Bytes!
+  value: BigInt!
+  timestamp: BigInt!
+}
+
+type User @entity {
+  id: ID!
+  totalReactions: Int!
+  totalInteractions: Int!
+}
+
+type Pulse @entity {
+  id: ID!
+  author: Bytes!
+  contentHash: String!
+  timestamp: BigInt!
+}

@@ -1,0 +1,272 @@
+type Query {
+  pulse(id: BigInt!): Pulse
+  pulses(
+    where: PulseFilter
+    orderBy: String
+    orderDirection: String
+    before: String
+    after: String
+    limit: Int
+  ): PulsePage!
+  reaction(id: BigInt!): Reaction
+  reactions(
+    where: ReactionFilter
+    orderBy: String
+    orderDirection: String
+    before: String
+    after: String
+    limit: Int
+  ): ReactionPage!
+  user(id: String!): User
+  users(
+    where: UserFilter
+    orderBy: String
+    orderDirection: String
+    before: String
+    after: String
+    limit: Int
+  ): UserPage!
+  global(id: String!): Global
+  globals(
+    where: GlobalFilter
+    orderBy: String
+    orderDirection: String
+    before: String
+    after: String
+    limit: Int
+  ): GlobalPage!
+  _meta: _meta
+}
+
+type Pulse {
+  id: BigInt!
+  author: String!
+  contentHash: String!
+  timestamp: BigInt!
+  reactionCount: BigInt!
+}
+
+scalar BigInt
+
+type PulsePage {
+  items: [Pulse!]!
+  pageInfo: PageInfo!
+}
+
+type PageInfo {
+  hasNextPage: Boolean!
+  hasPreviousPage: Boolean!
+  startCursor: String
+  endCursor: String
+}
+
+input PulseFilter {
+  AND: [PulseFilter]
+  OR: [PulseFilter]
+  id: BigInt
+  id_not: BigInt
+  id_in: [BigInt]
+  id_not_in: [BigInt]
+  id_gt: BigInt
+  id_lt: BigInt
+  id_gte: BigInt
+  id_lte: BigInt
+  author: String
+  author_not: String
+  author_in: [String]
+  author_not_in: [String]
+  author_gt: String
+  author_lt: String
+  author_gte: String
+  author_lte: String
+  contentHash: String
+  contentHash_not: String
+  contentHash_in: [String]
+  contentHash_not_in: [String]
+  contentHash_contains: String
+  contentHash_not_contains: String
+  contentHash_starts_with: String
+  contentHash_ends_with: String
+  contentHash_not_starts_with: String
+  contentHash_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+  reactionCount: BigInt
+  reactionCount_not: BigInt
+  reactionCount_in: [BigInt]
+  reactionCount_not_in: [BigInt]
+  reactionCount_gt: BigInt
+  reactionCount_lt: BigInt
+  reactionCount_gte: BigInt
+  reactionCount_lte: BigInt
+}
+
+type Reaction {
+  id: BigInt!
+  reactionId: BigInt!
+  pulseId: BigInt!
+  reactor: String!
+  reactionType: String!
+  timestamp: BigInt!
+}
+
+type ReactionPage {
+  items: [Reaction!]!
+  pageInfo: PageInfo!
+}
+
+input ReactionFilter {
+  AND: [ReactionFilter]
+  OR: [ReactionFilter]
+  id: BigInt
+  id_not: BigInt
+  id_in: [BigInt]
+  id_not_in: [BigInt]
+  id_gt: BigInt
+  id_lt: BigInt
+  id_gte: BigInt
+  id_lte: BigInt
+  reactionId: BigInt
+  reactionId_not: BigInt
+  reactionId_in: [BigInt]
+  reactionId_not_in: [BigInt]
+  reactionId_gt: BigInt
+  reactionId_lt: BigInt
+  reactionId_gte: BigInt
+  reactionId_lte: BigInt
+  pulseId: BigInt
+  pulseId_not: BigInt
+  pulseId_in: [BigInt]
+  pulseId_not_in: [BigInt]
+  pulseId_gt: BigInt
+  pulseId_lt: BigInt
+  pulseId_gte: BigInt
+  pulseId_lte: BigInt
+  reactor: String
+  reactor_not: String
+  reactor_in: [String]
+  reactor_not_in: [String]
+  reactor_gt: String
+  reactor_lt: String
+  reactor_gte: String
+  reactor_lte: String
+  reactionType: String
+  reactionType_not: String
+  reactionType_in: [String]
+  reactionType_not_in: [String]
+  reactionType_contains: String
+  reactionType_not_contains: String
+  reactionType_starts_with: String
+  reactionType_ends_with: String
+  reactionType_not_starts_with: String
+  reactionType_not_ends_with: String
+  timestamp: BigInt
+  timestamp_not: BigInt
+  timestamp_in: [BigInt]
+  timestamp_not_in: [BigInt]
+  timestamp_gt: BigInt
+  timestamp_lt: BigInt
+  timestamp_gte: BigInt
+  timestamp_lte: BigInt
+}
+
+type User {
+  id: String!
+  totalReactions: BigInt!
+  totalPulses: BigInt!
+}
+
+type UserPage {
+  items: [User!]!
+  pageInfo: PageInfo!
+}
+
+input UserFilter {
+  AND: [UserFilter]
+  OR: [UserFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_gt: String
+  id_lt: String
+  id_gte: String
+  id_lte: String
+  totalReactions: BigInt
+  totalReactions_not: BigInt
+  totalReactions_in: [BigInt]
+  totalReactions_not_in: [BigInt]
+  totalReactions_gt: BigInt
+  totalReactions_lt: BigInt
+  totalReactions_gte: BigInt
+  totalReactions_lte: BigInt
+  totalPulses: BigInt
+  totalPulses_not: BigInt
+  totalPulses_in: [BigInt]
+  totalPulses_not_in: [BigInt]
+  totalPulses_gt: BigInt
+  totalPulses_lt: BigInt
+  totalPulses_gte: BigInt
+  totalPulses_lte: BigInt
+}
+
+type Global {
+  id: String!
+  totalPulses: BigInt!
+  totalReactions: BigInt!
+  uniqueUsers: BigInt!
+}
+
+type GlobalPage {
+  items: [Global!]!
+  pageInfo: PageInfo!
+}
+
+input GlobalFilter {
+  AND: [GlobalFilter]
+  OR: [GlobalFilter]
+  id: String
+  id_not: String
+  id_in: [String]
+  id_not_in: [String]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_ends_with: String
+  id_not_starts_with: String
+  id_not_ends_with: String
+  totalPulses: BigInt
+  totalPulses_not: BigInt
+  totalPulses_in: [BigInt]
+  totalPulses_not_in: [BigInt]
+  totalPulses_gt: BigInt
+  totalPulses_lt: BigInt
+  totalPulses_gte: BigInt
+  totalPulses_lte: BigInt
+  totalReactions: BigInt
+  totalReactions_not: BigInt
+  totalReactions_in: [BigInt]
+  totalReactions_not_in: [BigInt]
+  totalReactions_gt: BigInt
+  totalReactions_lt: BigInt
+  totalReactions_gte: BigInt
+  totalReactions_lte: BigInt
+  uniqueUsers: BigInt
+  uniqueUsers_not: BigInt
+  uniqueUsers_in: [BigInt]
+  uniqueUsers_not_in: [BigInt]
+  uniqueUsers_gt: BigInt
+  uniqueUsers_lt: BigInt
+  uniqueUsers_gte: BigInt
+  uniqueUsers_lte: BigInt
+}
+
+type _meta {
+  block: Int
+}
